@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="L&C Multiservicios – Mantenimiento, reparación y restauración de equipos industriales, línea blanca, campanas y remodelación en general. Panamá." />
+  <title>L&C Multiservicios – Soluciones Integrales de Mantenimiento</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <style>
+    /* ============================
+       CSS VARIABLES & RESET
+    ============================ */
+    :root {
+      --orange:     #E8901A;
+      --orange-dark:#C47515;
+      --orange-light:#FFA733;
+      --gray-dark:  #1E1E1E;
+      --gray-mid:   #2C2C2C;
+      --gray-light: #F4F4F4;
+      --white:      #FFFFFF;
+      --text-dark:  #222222;
+      --text-muted: #666666;
+      --shadow:     0 8px 32px rgba(0,0,0,0.12);
+      --shadow-hover:0 16px 48px rgba(232,144,26,0.25);
+      --radius:     12px;
+      --transition: all 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ============================
+       UTILITIES
+    ============================ */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(232,144,26,0.12);
+      color: var(--orange);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--gray-dark);
+      margin-bottom: 16px;
+    }
+
+    .section-title span { color: var(--orange); }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(232,144,26,0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(232,144,26,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--orange);
+      border: 2px solid var(--orange);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--orange);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ============================
+       NAVBAR
+    ============================ */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: var(--gray-dark);
+      padding: 10px 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* CSS Logo Mark */
+    .logo-icon {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      line-height: 1;
+    }
+
+    .logo-text strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--orange);
+      display: block;
+    }
+
+    .logo-text span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--orange);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-phone {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--gray-dark) 0%, #2a2a2a 50%, #1a1a1a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(232,144,26,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(232,144,26,0.08) 0%, transparent 40%);
+    }
+
+    /* Decorative geometric circles */
+    .hero-deco {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 580px;
+      height: 580px;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .hero-deco::before,
+    .hero-deco::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: 60px solid var(--orange);
+    }
+
+    .hero-deco::before {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .hero-deco::after {
+      width: 70%;
+      height: 70%;
+      top: 15%;
+      left: 15%;
+      border-color: var(--white);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,144,26,0.15);
+      border: 1px solid rgba(232,144,26,0.3);
+      color: var(--orange-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge i { font-size: 0.9rem; }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-title span {
+      color: var(--orange);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: left;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .hero-stat span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      align-self: center;
+    }
+
+    /* Scroll indicator */
+    .scroll-down {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-down i { font-size: 1.1rem; color: var(--orange); }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ============================
+       SERVICES STRIP
+    ============================ */
+    #services-strip {
+      background: var(--orange);
+      padding: 20px 0;
+    }
+
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .strip-item i { font-size: 1.1rem; opacity: 0.85; }
+
+    .strip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+    }
+
+    /* ============================
+       SERVICES SECTION
+    ============================ */
+    #servicios {
+      padding: 100px 0;
+      background: var(--gray-light);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header .section-sub {
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid transparent;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-bottom-color: var(--orange);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(232,144,26,0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--orange);
+    }
+
+    .service-icon i {
+      font-size: 1.8rem;
+      color: var(--orange);
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-icon i {
+      color: var(--white);
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ============================
+       ABOUT SECTION
+    ============================ */
+    #nosotros {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-main {
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--gray-dark);
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Orange decorative block */
+    .about-img-main::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 180px;
+      height: 180px;
+      background: var(--orange);
+      border-radius: 16px;
+      z-index: -1;
+    }
+
+    .about-img-placeholder {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .about-img-placeholder .logo-big {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .about-img-placeholder p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Experience badge */
+    .exp-badge {
+      position: absolute;
+      bottom: 32px;
+      left: -28px;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2;
+    }
+
+    .exp-badge .num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .exp-badge .txt {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .exp-badge .txt strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      color: var(--gray-dark);
+    }
+
+    .about-content h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--gray-dark);
+      margin-bottom: 20px;
+    }
+
+    .about-content h2 span { color: var(--orange); }
+
+    .about-content p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-feature .icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(232,144,26,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .about-feature .icon i {
+      font-size: 1rem;
+      color: var(--orange);
+    }
+
+    .about-feature h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gray-dark);
+      margin-bottom: 2px;
+    }
+
+    .about-feature p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* ============================
+       WHY US SECTION
+    ============================ */
+    #por-que {
+      padding: 80px 0;
+      background: var(--gray-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #por-que::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 80px solid rgba(232,144,26,0.06);
+      pointer-events: none;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .why-item i {
+      font-size: 2.4rem;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .why-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .why-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* ============================
+       CONTACT SECTION
+    ============================ */
+    #contacto {
+      padding: 100px 0;
+      background: var(--gray-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--gray-dark);
+      margin-bottom: 16px;
+    }
+
+    .contact-info h2 span { color: var(--orange); }
+
+    .contact-info p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-item .icon {
+      width: 52px;
+      height: 52px;
+      background: var(--orange);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item .icon i {
+      font-size: 1.3rem;
+      color: var(--white);
+    }
+
+    .contact-item .text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .contact-item .text a,
+    .contact-item .text span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      transition: var(--transition);
+    }
+
+    .contact-item .text a:hover { color: var(--orange); }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .social-link.instagram {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: var(--white);
+    }
+
+    .social-link.whatsapp {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Contact Form */
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 48px 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form-wrap h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--gray-dark);
+      margin-bottom: 6px;
+    }
+
+    .contact-form-wrap p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gray-dark);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2px solid #E8E8E8;
+      border-radius: 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(232,144,26,0.1);
+    }
+
+    .form-group textarea {
+      height: 110px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .form-note {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: var(--gray-dark);
+      padding: 60px 0 24px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+    }
+
+    .footer-brand .logo-text strong {
+      font-size: 1.4rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-col ul a:hover { color: var(--orange); padding-left: 4px; }
+
+    .footer-col ul a i { font-size: 0.7rem; }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-bottom p a { color: var(--orange); }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-socials a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-socials a:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+
+    /* ============================
+       FLOATING WHATSAPP
+    ============================ */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.5);
+      color: var(--white);
+      font-size: 1.6rem;
+      transition: var(--transition);
+      animation: waPulse 2.5s infinite;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(37,211,102,0.6);
+    }
+
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 8px 24px rgba(37,211,102,0.5), 0 0 0 14px rgba(37,211,102,0); }
+    }
+
+    /* ============================
+       MOBILE NAV DRAWER
+    ============================ */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gray-dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .mobile-nav a:hover { color: var(--orange); }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-img-main { aspect-ratio: 3/2; }
+      .exp-badge { left: 16px; }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links, .nav-phone { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-stats { gap: 20px; }
+      .hero-divider { display: none; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .about-features { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; }
+
+      .footer-brand { grid-column: auto; }
+
+      .contact-form-wrap { padding: 32px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .strip-inner { gap: 16px; }
+      .strip-dot { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">
+          <!-- SVG approximation of the L&C rings logo -->
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="26" r="9" stroke="#555" stroke-width="5"/>
+            <circle cx="28" cy="14" r="8" stroke="#333" stroke-width="5"/>
+            <circle cx="32" cy="30" r="8" stroke="#E8901A" stroke-width="5.5"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <strong>L&amp;C</strong>
+          <span>Multiservicios</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="tel:64815397" class="nav-phone">
+          <i class="fas fa-phone"></i> 6481-5397
+        </a>
+        <a href="https://wa.me/50764815397?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios." target="_blank" class="btn btn-primary" style="padding:10px 22px; font-size:0.82rem;">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileClose">&times;</button>
+    <a href="#hero" class="mobile-link">Inicio</a>
+    <a href="#servicios" class="mobile-link">Servicios</a>
+    <a href="#nosotros" class="mobile-link">Nosotros</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+    <a href="tel:64815397" style="color:var(--orange); font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+      <i class="fas fa-phone"></i> 6481-5397
+    </a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-deco"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge" data-aos="fade-down">
+          <i class="fas fa-tools"></i>
+          Servicio Profesional en Panamá
+        </div>
+
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+          Soluciones de<br><span>Mantenimiento</span><br>que Funcionan
+        </h1>
+
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+          Equipo industrial · Línea blanca · Remodelaciones
+        </p>
+
+        <p class="hero-desc" data-aos="fade-up" data-aos-delay="300">
+          En L&amp;C Multiservicios brindamos servicios integrales de mantenimiento, reparación y remodelación para hogares, restaurantes y empresas en toda la República de Panamá.
+        </p>
+
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+          <a href="#contacto" class="btn btn-primary">
+            <i class="fas fa-calendar-check"></i> Solicitar Servicio
+          </a>
+          <a href="https://wa.me/50764815397?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios." target="_blank" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Escríbenos
+          </a>
+          <a href="#servicios" class="btn btn-outline">
+            Ver Servicios
+          </a>
+        </div>
+
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Satisfacción</span>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-stat">
+            <strong>24h</strong>
+            <span>Respuesta</span>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-stat">
+            <strong>4</strong>
+            <span>Servicios</span>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-stat">
+            <strong>PTY</strong>
+            <span>Panamá</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-down">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES STRIP ===================== -->
+  <div id="services-strip">
+    <div class="container">
+      <div class="strip-inner">
+        <div class="strip-item"><i class="fas fa-fire-burner"></i> Equipo Industrial</div>
+        <div class="strip-dot"></div>
+        <div class="strip-item"><i class="fas fa-fan"></i> Campanas & Extractores</div>
+        <div class="strip-dot"></div>
+        <div class="strip-item"><i class="fas fa-hammer"></i> Remodelaciones</div>
+        <div class="strip-dot"></div>
+        <div class="strip-item"><i class="fas fa-washing-machine"></i> Línea Blanca</div>
+        <div class="strip-dot"></div>
+        <div class="strip-item"><i class="fas fa-phone-volume"></i> 6481-5397</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Nuestros Servicios</span>
+        <h2 class="section-title">Todo lo que <span>Necesitas</span></h2>
+        <p class="section-sub">Ofrecemos soluciones completas de mantenimiento, reparación y remodelación con técnicos especializados y materiales de calidad.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-icon">
+            <i class="fas fa-fire-burner"></i>
+          </div>
+          <h3>Equipo Industrial de Cocina</h3>
+          <p>Mantenimiento, reparación y restauración de equipo industrial de cocina frío y caliente: freidoras, hornos, planchas, cámaras frigoríficas y más.</p>
+          <span class="service-tag"><i class="fas fa-arrow-right"></i> Restaurantes & Hoteles</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-fan"></i>
+          </div>
+          <h3>Campanas & Extractores</h3>
+          <p>Mantenimiento e instalación profesional de campanas extractoras industriales y residenciales, garantizando óptima ventilación y seguridad.</p>
+          <span class="service-tag"><i class="fas fa-arrow-right"></i> Industrial & Residencial</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <h3>Remodelación en General</h3>
+          <p>Servicios completos de remodelación: gypsum, soldadura, pintura, albañilería y mucho más. Transformamos espacios con acabados de calidad.</p>
+          <span class="service-tag"><i class="fas fa-arrow-right"></i> Hogares & Comercios</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-washer"></i>
+          </div>
+          <h3>Línea Blanca en General</h3>
+          <p>Mantenimiento y reparación de lavadoras, secadoras, refrigeradoras, aires acondicionados y electrodomésticos en general para hogares y empresas.</p>
+          <span class="service-tag"><i class="fas fa-arrow-right"></i> Todo tipo de marca</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Visual -->
+        <div class="about-visual" data-aos="fade-right">
+          <div class="about-img-main">
+            <div class="about-img-placeholder">
+              <div class="logo-big">L&amp;C</div>
+              <p>Multiservicios</p>
+              <!-- Decorative SVG rings -->
+              <svg style="margin:24px auto 0; display:block; opacity:0.15;" width="120" height="120" viewBox="0 0 120 120" fill="none">
+                <circle cx="40" cy="70" r="28" stroke="#E8901A" stroke-width="12"/>
+                <circle cx="72" cy="40" r="24" stroke="#aaa" stroke-width="10"/>
+                <circle cx="88" cy="80" r="24" stroke="#fff" stroke-width="10"/>
+              </svg>
+            </div>
+          </div>
+          <div class="exp-badge">
+            <span class="num">+5</span>
+            <div class="txt">
+              <strong>Años de</strong>
+              experiencia en el mercado
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content" data-aos="fade-left">
+          <span class="section-badge">Sobre Nosotros</span>
+          <h2>¿Quiénes <span>Somos?</span></h2>
+
+          <p>L&amp;C Multiservicios es una empresa panameña dedicada a brindar soluciones integrales de mantenimiento, reparación y remodelación para hogares, restaurantes y empresas en toda la República de Panamá.</p>
+
+          <p>Contamos con un equipo de técnicos certificados y comprometidos con la excelencia, listos para atender sus necesidades con la rapidez y calidad que merece. Trabajamos con los mejores materiales y las más modernas técnicas del mercado.</p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="icon"><i class="fas fa-certificate"></i></div>
+              <div>
+                <h4>Técnicos Certificados</h4>
+                <p>Personal capacitado y con experiencia comprobada</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h4>Respuesta Rápida</h4>
+                <p>Atendemos su solicitud en menos de 24 horas</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="icon"><i class="fas fa-shield-check"></i></div>
+              <div>
+                <h4>Trabajo Garantizado</h4>
+                <p>Garantía en materiales y mano de obra</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>Cobertura Nacional</h4>
+                <p>Servicio en toda la República de Panamá</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contacto" class="btn btn-primary">
+            <i class="fas fa-phone"></i> Contáctanos Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY US ===================== -->
+  <section id="por-que">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:56px;" data-aos="fade-up">
+        <span class="section-badge" style="background:rgba(232,144,26,0.2);">¿Por qué elegirnos?</span>
+        <h2 class="section-title" style="color:var(--white);">Compromiso con la <span>Excelencia</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item" data-aos="fade-up" data-aos-delay="0">
+          <i class="fas fa-medal"></i>
+          <h3>Calidad Garantizada</h3>
+          <p>Utilizamos repuestos originales y materiales de primera calidad en cada servicio.</p>
+        </div>
+        <div class="why-item" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-dollar-sign"></i>
+          <h3>Precios Competitivos</h3>
+          <p>Tarifas justas y transparentes, sin costos ocultos. Presupuesto gratuito.</p>
+        </div>
+        <div class="why-item" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-user-tie"></i>
+          <h3>Equipo Profesional</h3>
+          <p>Técnicos especializados con años de experiencia en el campo.</p>
+        </div>
+        <div class="why-item" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-headset"></i>
+          <h3>Atención Personalizada</h3>
+          <p>Cada cliente es único. Soluciones a la medida de sus necesidades.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div class="contact-info" data-aos="fade-right">
+          <span class="section-badge">Contáctenos</span>
+          <h2>Estamos <span>Listos</span><br>para Ayudarle</h2>
+          <p>No espere más. Comuníquese con nosotros hoy mismo y reciba atención inmediata de nuestro equipo de expertos.</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="icon"><i class="fas fa-phone"></i></div>
+              <div class="text">
+                <strong>Teléfono</strong>
+                <a href="tel:64815397">6481-5397</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="text">
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/50764815397?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios." target="_blank">+507 6481-5397</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon"><i class="fab fa-instagram"></i></div>
+              <div class="text">
+                <strong>Instagram</strong>
+                <a href="https://instagram.com/lc.multiservicios" target="_blank">@lc.multiservicios</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="text">
+                <strong>Cobertura</strong>
+                <span>República de Panamá</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://instagram.com/lc.multiservicios" target="_blank" class="social-link instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://wa.me/50764815397?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios." target="_blank" class="social-link whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-wrap" data-aos="fade-left">
+          <h3>Solicitar Servicio</h3>
+          <p>Complete el formulario y nos pondremos en contacto con usted a la brevedad.</p>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" placeholder="Su nombre" required />
+              </div>
+              <div class="form-group">
+                <label>Teléfono</label>
+                <input type="tel" placeholder="Ej: 6000-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input type="email" placeholder="correo@ejemplo.com" />
+            </div>
+            <div class="form-group">
+              <label>Tipo de Servicio</label>
+              <select required>
+                <option value="" disabled selected>Seleccione un servicio</option>
+                <option>Equipo industrial de cocina (frío/caliente)</option>
+                <option>Campanas y extractores</option>
+                <option>Remodelación en general</option>
+                <option>Línea blanca (electrodomésticos)</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Descripción del problema</label>
+              <textarea placeholder="Cuéntenos brevemente qué necesita..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <i class="fas fa-paper-plane"></i> Enviar Solicitud
+            </button>
+            <p class="form-note"><i class="fas fa-lock"></i> Su información está segura. Respondemos en menos de 24h.</p>
+          </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="formSuccess" style="display:none; text-align:center; padding:40px 20px;">
+            <div style="width:70px;height:70px;background:rgba(232,144,26,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+              <i class="fas fa-check" style="font-size:1.8rem;color:var(--orange);"></i>
+            </div>
+            <h3 style="color:var(--gray-dark);margin-bottom:10px;">¡Solicitud Enviada!</h3>
+            <p style="color:var(--text-muted);font-size:0.92rem;">Nos pondremos en contacto con usted muy pronto. También puede escribirnos directamente al WhatsApp para atención inmediata.</p>
+            <a href="https://wa.me/50764815397" target="_blank" class="btn btn-whatsapp" style="margin-top:24px; display:inline-flex;">
+              <i class="fab fa-whatsapp"></i> Ir al WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:4px;">
+            <div class="logo-icon">
+              <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="26" r="9" stroke="#555" stroke-width="5"/>
+                <circle cx="28" cy="14" r="8" stroke="#444" stroke-width="5"/>
+                <circle cx="32" cy="30" r="8" stroke="#E8901A" stroke-width="5.5"/>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <strong>L&amp;C</strong>
+              <span>Multiservicios</span>
+            </div>
+          </div>
+          <p>Soluciones integrales de mantenimiento, reparación y remodelación para hogares y empresas en toda la República de Panamá.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Equipo Industrial de Cocina</a></li>
+            <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Campanas & Extractores</a></li>
+            <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Remodelación General</a></li>
+            <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Línea Blanca</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="tel:64815397"><i class="fas fa-phone"></i> 6481-5397</a></li>
+            <li><a href="https://wa.me/50764815397" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            <li><a href="https://instagram.com/lc.multiservicios" target="_blank"><i class="fab fa-instagram"></i> @lc.multiservicios</a></li>
+            <li><a href="#contacto"><i class="fas fa-envelope"></i> Formulario de Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 L&amp;C Multiservicios. Todos los derechos reservados.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/lc.multiservicios" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/50764815397" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== WHATSAPP FLOAT ===================== -->
+  <a href="https://wa.me/50764815397?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios." target="_blank" class="wa-float" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // ---- Init AOS ----
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    // ---- Navbar scroll effect ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    // Trigger once on load
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+    // ---- Active nav link ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // ---- Mobile Nav ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileClose = document.getElementById('mobileClose');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+      document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileClose.addEventListener('click', closeMobileNav);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ---- Form submission (demo) ----
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
