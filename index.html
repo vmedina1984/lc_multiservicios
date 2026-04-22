@@ -509,9 +509,23 @@
     }
 
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 28px;
+    }
+
+    .service-card {
+      flex: 1 1 260px;
+      max-width: calc(33.333% - 20px);
+    }
+
+    @media (max-width: 900px) {
+      .service-card { max-width: calc(50% - 14px); }
+    }
+
+    @media (max-width: 600px) {
+      .service-card { max-width: 100%; }
     }
 
     .service-card {
